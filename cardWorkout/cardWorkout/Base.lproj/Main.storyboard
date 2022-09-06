@@ -35,6 +35,9 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="19"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="stopButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="41F-10-gvQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlT-cO-aeR">
                                 <rect key="frame" x="77" y="668" width="115" height="50"/>
@@ -48,6 +51,9 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="19"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kZZ-tL-rWc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wwi-2z-Kgk">
                                 <rect key="frame" x="222" y="668" width="115" height="50"/>
@@ -61,6 +67,10 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="19"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="rulesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2hw-MC-P4q"/>
+                                    <segue destination="xWg-4G-Ddf" kind="presentation" id="KdB-MO-3Mp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -76,10 +86,64 @@
                             <constraint firstItem="1K5-Aw-5gy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sAN-hO-Wko"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cardImageView" destination="x89-rN-6PI" id="Cpv-0Y-A1u"/>
+                        <outletCollection property="buttons" destination="1K5-Aw-5gy" collectionClass="NSMutableArray" id="kSC-9Y-SLh"/>
+                        <outletCollection property="buttons" destination="dlT-cO-aeR" collectionClass="NSMutableArray" id="VT1-lv-2KP"/>
+                        <outletCollection property="buttons" destination="Wwi-2z-Kgk" collectionClass="NSMutableArray" id="fjd-yY-vjh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kmH-7C-rNa">
+            <objects>
+                <viewController id="xWg-4G-Ddf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HrF-pC-Dnx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fX-oM-scn">
+                                <rect key="frame" x="30" y="137" width="354" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The value of each card represents the number of exercise you do.  J = 11, Q = 12, K = 13, A = 14" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kin-ox-MgG">
+                                <rect key="frame" x="30" y="210" width="354" height="86"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="♠️= Push-up  ❤️ = Sit-up  ♣️ = Burpees  ♦️ = Jumping Jacks" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flH-oc-Zpl">
+                                <rect key="frame" x="107" y="371" width="200" height="175.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="gfl-ws-g0W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Khd-22-341"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="flH-oc-Zpl" firstAttribute="centerX" secondItem="HrF-pC-Dnx" secondAttribute="centerX" id="14w-5x-MPb"/>
+                            <constraint firstItem="Khd-22-341" firstAttribute="trailing" secondItem="2fX-oM-scn" secondAttribute="trailing" constant="30" id="OUJ-ZA-Mdt"/>
+                            <constraint firstItem="2fX-oM-scn" firstAttribute="leading" secondItem="Khd-22-341" secondAttribute="leading" constant="30" id="j9R-lp-8jC"/>
+                            <constraint firstItem="flH-oc-Zpl" firstAttribute="top" secondItem="kin-ox-MgG" secondAttribute="bottom" constant="75" id="mrQ-ns-BZW"/>
+                            <constraint firstItem="kin-ox-MgG" firstAttribute="top" secondItem="2fX-oM-scn" secondAttribute="bottom" constant="25" id="o6M-tR-JGf"/>
+                            <constraint firstItem="Khd-22-341" firstAttribute="trailing" secondItem="kin-ox-MgG" secondAttribute="trailing" constant="30" id="sc8-Ur-PG6"/>
+                            <constraint firstItem="2fX-oM-scn" firstAttribute="top" secondItem="HrF-pC-Dnx" secondAttribute="top" constant="137" id="uI1-Zj-xjT"/>
+                            <constraint firstItem="kin-ox-MgG" firstAttribute="leading" secondItem="Khd-22-341" secondAttribute="leading" constant="30" id="ud6-9a-6xy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FnX-yw-cHE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="139"/>
         </scene>
     </scenes>
     <resources>
